@@ -8,7 +8,7 @@
   "scripts": {
     "test": "jest __test__/",
     "start": "nodemon ./src/index.js",
-    "lint": "eslint -c .eslintrc ./src/**/*.js",
+    "lint": "eslint -c .eslintrc ./src/",
     "prepush": "npm run lint",
     "init": "rm -rf .git && git init && git add . && git commit -m 'init'"
   },
@@ -17,6 +17,8 @@
     "jest": "^16.0.2"
   },
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "node-telegram-bot-api": "^0.24.0",
     "nodemon": "^1.11.0"
   }
 }
