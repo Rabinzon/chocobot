@@ -3,4 +3,4 @@ WORKDIR /chocobot
 ADD . /chocobot
 RUN npm install
 EXPOSE 3032
-CMD ["npm", "start"]
+CMD npm start
