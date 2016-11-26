@@ -1,7 +1,8 @@
 const fetch = require('isomorphic-fetch');
+const constants = require('./constants');
 
 module.exports = key =>
-	fetch('http://api.fixer.io/latest')
+	fetch(constants.RATES_API)
 		.then(res => res.json())
 		.then(res => {
 			const rub = res.rates.RUB.toFixed(2);

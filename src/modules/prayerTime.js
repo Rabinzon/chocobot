@@ -1,10 +1,11 @@
 const fetch = require('isomorphic-fetch');
+const constants = require('./constants');
 const timeRgx = /\d+:\d+/g;
 const nameRgx = /h>['аA-яЯ]+/g;
 const filterRgx = />|h|\\/;
 
 module.exports = (key) =>
-	fetch('http://www.vremyanamaza.ru/widget/prayersTodayJs?location_id=19685')
+	fetch(constants.PRAYER_GET)
 		.then(res => res.text())
 		.then(res => {
 			const times = res.match(timeRgx);
