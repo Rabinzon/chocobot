@@ -7,8 +7,7 @@ const filterRgx = />|h|\\/;
 const getMap = names =>
 	(time, i) => ({n: names[i], t: time});
 
-const getString = (acc, el) =>
-	(acc += `${el.n} - ${el.t}\n` && acc);
+const getString = (acc, el) => acc += `${el.n} - ${el.t}\n`;
 
 const filterName = name => name.split(filterRgx).join('');
 
