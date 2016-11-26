@@ -1,5 +1,5 @@
 const Bot = require('./bot');
-const conf = require('./config.json');
-const token = conf.token;
+const process = require('process');
+const token = process.env.TOKEN;
 
 new Bot(token, {polling: true});
