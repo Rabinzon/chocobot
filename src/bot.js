@@ -21,7 +21,7 @@ class Bot extends TelegramBot {
 		this.sendMessage(this.getChatId(msg), 'I\'m alive! Whats up ? 🙈');
 	}
 	sendServerIp(msg) {
-		this.sendMessage(this.getChatId(msg), this.serverIp);
+		this.sendMessage(this.getChatId(msg), "no asv");
 	}
 	sendPrayerTime(msg) {
 		prayerTime('string').then(res => {
