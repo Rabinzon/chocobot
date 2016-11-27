@@ -5,6 +5,7 @@ const prayerTime = require('./modules/prayerTime');
 class Bot extends TelegramBot {
 	constructor(token, params, ip) {
 		super(token, params);
+		this.serverIp = ip;
 		this.setListeners();
 	}
 	setListeners() {
@@ -20,7 +21,7 @@ class Bot extends TelegramBot {
 		this.sendMessage(this.getChatId(msg), 'I\'m alive! Whats up ? 🙈');
 	}
 	sendServerIp(msg) {
-		this.sendMessage(this.getChatId(msg), ip);
+		this.sendMessage(this.getChatId(msg), this.serverIp);
 	}
 	sendPrayerTime(msg) {
 		prayerTime('string').then(res => {
