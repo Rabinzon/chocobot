@@ -8,6 +8,7 @@ class Bot extends TelegramBot {
 		this.serverIp = ip;
 		this.setListeners();
 		this.rootChat = rootChat;
+		this.sendToRootChat(`I'm reborn! 🤗`)
 	}
 	setListeners() {
 		this.onText(/^echo.?/, m => this.handler(m));
