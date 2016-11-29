@@ -12,7 +12,7 @@ server.use(cors());
 const bot = new Bot(token, {polling: true}, ip, chatID);
 
 server.get('/', (req, res) => {
-	bot.sendToRootChat('bot updated 🚀');
+	bot.sendToRootChat('🎉 bot updated 🚀');
 	res.send('OK');
 });
 
