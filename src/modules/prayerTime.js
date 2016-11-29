@@ -11,17 +11,19 @@ const getString = (acc, el) => acc += `${el.n} - ${el.t}\n`;
 
 const filterName = name => name.split(filterRgx).join('');
 
+const getResult = res =>  {
+	const times = res.match(timeRgx);
+	const names = res.match(nameRgx).map(filterName);
+	const json = times.map(getMap(names));
+	const string = json.reduce(getString, '🙏\n');
+	const results = {
+		json,
+		string
+	};
+	return results[key];
+};
+
 module.exports = key =>
 	fetch(constants.PRAYER_GET)
 		.then(res => res.text())
-		.then(res => {
-			const times = res.match(timeRgx);
-			const names = res.match(nameRgx).map(filterName);
-			const json = times.map(getMap(names));
-			const string = json.reduce(getString, '🙏\n');
-			const results = {
-				json,
-				string
-			};
-			return results[key];
-		});
+		.then(getResult);
