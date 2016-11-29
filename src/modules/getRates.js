@@ -1,7 +1,7 @@
 const fetch = require('isomorphic-fetch');
 const constants = require('./constants');
 
-const getResult = res => {
+const getResult = key => res => {
 	const rub = res.rates.RUB.toFixed(2);
 	const usd = (rub / res.rates.USD).toFixed(2);
 	const results = {
@@ -14,4 +14,4 @@ const getResult = res => {
 module.exports = key =>
 	fetch(constants.RATES_API)
 		.then(res => res.json())
-		.then(getResult);
+		.then(getResult(key));

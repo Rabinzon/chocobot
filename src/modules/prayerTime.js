@@ -11,7 +11,7 @@ const getString = (acc, el) => acc += `${el.n} - ${el.t}\n`;
 
 const filterName = name => name.split(filterRgx).join('');
 
-const getResult = res =>  {
+const getResult = key => res =>  {
 	const times = res.match(timeRgx);
 	const names = res.match(nameRgx).map(filterName);
 	const json = times.map(getMap(names));
@@ -26,4 +26,4 @@ const getResult = res =>  {
 module.exports = key =>
 	fetch(constants.PRAYER_GET)
 		.then(res => res.text())
-		.then(getResult);
+		.then(getResult(key));
