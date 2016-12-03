@@ -5,6 +5,7 @@ const cors = require('cors');
 const token = process.env.TOKEN;
 const chatID = process.env.CHAT;
 const ip = process.env.IP;
+const port = process.env.PORT;
 const server = express();
 
 server.use(cors());
@@ -16,6 +17,5 @@ server.get('/', (req, res) => {
 	res.send('OK');
 });
 
-server.listen(80);
-
+server.listen(port);
 
